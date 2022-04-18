@@ -2,27 +2,31 @@ import React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
 import { OrbitControls, softShadows, Stars} from '@react-three/drei';
+import useHoover from '../../Hooks/useHoover';
 import './Pretzel.scss'
 
 softShadows();
 
 function Pretzel({position, args, color, castShadow, wireframe, scale}) {
-	const mesh = useRef(null);
+	const mesh = useRef();
+	
 	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.02));
 	const [clicked, click] = useState(false)
 	return (
+		<>
 		<mesh castShadow={castShadow} position={position} wireframe={wireframe} ref={mesh} scale={clicked ? 1.2 : .85}
 		onClick={() => click(!clicked)}>
 			<torusKnotGeometry args={[.5, 0.2, 128, 32]}/>
 			<meshPhongMaterial shininess={250} color={color}/>
 		</mesh>
+		</>
 	);
 }
 function Shapes() {
-	//const [clicked, setClicked] = useState(false);
+	
 	return (
 		<div className="body">
-			Shapes123
+			Shapes12356
 			<Canvas shadows={true} colorManagement>
         <ambientLight intensity={.7}/>
         <directionalLight
@@ -36,12 +40,14 @@ function Shapes() {
           </mesh>
         </group>
 		<Stars count={2000} />
-		<Pretzel position={[-2,2,0]} args={[2.5,1,0.5]} castShadow="true" color="salmon" wireframe={true}/>
+		<Pretzel  position={[-2,2,0]} args={[2.5,1,0.5]} castShadow="true" color="salmon"/>
         <Pretzel position={[-0,1,-5]} args={[1,1,1]} castShadow="true" color="black" speed={6}/>
-        <Pretzel position={[3,0,-2]} args={[2,1,1]} castShadow="true" color="salmon"/>
+        <Pretzel  position={[3,0,-2]} args={[2,1,1]} castShadow="true" color="salmon"/>
+		
         <OrbitControls/>
 		
 			</Canvas>
+		
 		</div>
 	);
 }

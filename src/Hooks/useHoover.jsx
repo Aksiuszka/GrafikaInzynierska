@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-const useDrag=(deps=[], ref, options)=> {
+import {useState, useEffect} from 'react';
+const useDrag=(ref, deps = [], options)=> {
     const {
         onMouseUp =()=>{},
         onMouseDown =()=>{},

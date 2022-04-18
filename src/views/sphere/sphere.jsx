@@ -1,8 +1,8 @@
 import React from 'react';
-import './Shapes.scss';
+import './sphere.scss';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import {MeshWobbleMaterial, OrbitControls} from '@react-three/drei';
+import {MeshWobbleMaterial, Cloud, OrbitControls} from '@react-three/drei';
 
 
 function Box({position, args, color, castShadow, speed}) {
@@ -11,8 +11,8 @@ function Box({position, args, color, castShadow, speed}) {
 
 	return (
 		<mesh castShadow={castShadow} position={position} ref={mesh}>
-			<boxBufferGeometry attach="geometry" args={args} />
-			<MeshWobbleMaterial attach="material" color={color} speed={speed} factor={.8}/>
+			<sphereBufferGeometry attach="geometry" args={args} />
+			<MeshWobbleMaterial shininess={250} color={color}/>
 		</mesh>
 	);
 }
@@ -32,13 +32,26 @@ function Shapes() {
           <shadowMaterial attach="material" opacity={0.1}/> 
           </mesh>
         </group>
-				<Box position={[-2,1,0]} args={[1.5,1,0.5]} castShadow="true" color="pink"/>
-        <Box position={[-0,1,-5]} args={[1,1,1]} castShadow="true" color="lightblue" speed={6}/>
-        <Box position={[3,1,-2]} args={[2,1,1]} castShadow="true" color="salmon"/>
+		 {/* <Cloud
+  opacity={0.5}
+  speed={0.4} // Rotation speed
+  width={10} // Width of the full cloud
+  depth={1.5} // Z-dir depth
+  segments={20} // Number of particles
+/>
+<Cloud
+  opacity={0.8}
+  speed={0.9} // Rotation speed
+  width={20} // Width of the full cloud
+  depth={6.5} // Z-dir depth
+  segments={10} // Number of particles
+/>  */}
+        <Box position={[-0,1,-5]} args={[3,96,30]} castShadow="true" color="coral" speed={6}/>
+        <Box position={[-10,1,-5]} args={[1,36,30]} castShadow="true" color="white" speed={6}/>
         <OrbitControls/>
 			</Canvas>
 		</div>
 	);
 }
- 
+
 export default Shapes;

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './views/menu/Home';
 import Cubes from './views/shapesCubes/Shapes';
 import Pretzel from './views/shapesPretzel/Pretzel';
+import Sphere from './views/sphere/sphere';
 
 function Routing() {
   return (
@@ -11,6 +12,7 @@ function Routing() {
     <Route path="/" element={<Home />} />
     <Route path="/cubes" element={<Cubes />} />
     <Route path="/pretzel" element={<Pretzel />} />
+    <Route path="/sphere" element={<Sphere />} />
     </Routes>
 </Router>
   )

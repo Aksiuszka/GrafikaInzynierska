@@ -4,6 +4,7 @@ import Home from './views/menu/Home';
 import Cubes from './views/shapesCubes/Shapes';
 import Pretzel from './views/shapesPretzel/Pretzel';
 import Sphere from './views/sphere/sphere';
+import Author from './views/autor/Author';
 
 function Routing() {
   return (
@@ -13,6 +14,7 @@ function Routing() {
     <Route path="/cubes" element={<Cubes />} />
     <Route path="/pretzel" element={<Pretzel />} />
     <Route path="/sphere" element={<Sphere />} />
+    <Route path="/author" element={<Author />} />
     </Routes>
 </Router>
   )

@@ -3,7 +3,7 @@ import './Home.css';
 import CosmicGal from '../../assets/Error Broken Robot.png'
 import Navbar from 'components/Navbar/Navbar';
 import video from '../../assets/Valley-sunset.mp4';
-import {Btn, AreaGray} from '../../components/Navbar/styled'
+import {Btn, AreaGray} from '../../components/Navbar/styled';
 function Home() {
   return (
     <div className="MainBody">

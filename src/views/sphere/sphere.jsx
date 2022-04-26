@@ -4,12 +4,16 @@ import './sphere.scss';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import {MeshWobbleMaterial, Cloud, OrbitControls} from '@react-three/drei';
+import planetData from './planetData';
 
 function Spheres() { 
 	return (
     <Canvas camera={{ position: [0, 20, 25], fov: 45 }}>
     <Sun />
-    <Planet />
+    {planetData.map((planet)=>(
+      <Planet planet={planet} key={planet.id}/>
+    ))}
+    
     <Lights />
     <OrbitControls />
   </Canvas>
@@ -39,14 +43,14 @@ return (
   </mesh>
 );
 }
-function Planet() {
+function Planet({ planet:{color, xRadius, zRadius, size}}) {
 return (
   <>
-  <mesh position={[5, 0, 0]}>
-    <sphereGeometry args={[1, 30, 30]} />
-    <meshStandardMaterial color="#78D481" />
+  <mesh position={[xRadius, 0, 0]}>
+    <sphereGeometry args={[size, 30, 30]} />
+    <meshStandardMaterial color={color} />
   </mesh>
-  <Ellipsa xRadius={5} zRadius={5} />
+  <Ellipsa xRadius={xRadius} zRadius={zRadius} />
   </>
 );
 }

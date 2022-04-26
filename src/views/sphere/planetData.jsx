@@ -10,8 +10,8 @@ for(let i =0; i<planetNumber; i++){
         color: generateColor(),
         xRadius: (i + 1.5) * 4,
         zRadius: (i + 1.5) * 2,
-        size: random(0.5,1)
-
+        size: random(0.5,1),
+        speed: random (0.2, 0.8)
     });
 }
 export default planetData;

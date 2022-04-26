@@ -19,6 +19,7 @@ function Spheres() {
   </Canvas>
 );
 }
+
 function Ellipsa ({ xRadius = 1, zRadius = 1 }){
   const pointsOnEllipsis =[];
   for(let index=0; index<64; index++){
@@ -43,10 +44,18 @@ return (
   </mesh>
 );
 }
-function Planet({ planet:{color, xRadius, zRadius, size}}) {
+function Planet({ planet:{color, xRadius, zRadius, size, speed}}) {
+  const planetRef = React.useRef();
+  useFrame(({clock})=>{
+    const t = clock.getElapsedTime()*speed;
+    const x = xRadius * Math.sin(t);
+    const z = zRadius * Math.cos(t);
+    planetRef.current.position.x = x;
+    planetRef.current.position.z = z;
+  });
 return (
   <>
-  <mesh position={[xRadius, 0, 0]}>
+  <mesh ref={planetRef}>
     <sphereGeometry args={[size, 30, 30]} />
     <meshStandardMaterial color={color} />
   </mesh>

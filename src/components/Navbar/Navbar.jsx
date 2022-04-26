@@ -10,7 +10,7 @@ function Navbar() {
         <div className="linkHolder">
             <ul className="linksContainer">
             <Link to='/cubes' style={{ textDecoration: 'none' }}><li>sześciany</li></Link>
-            <Link to='/pretzl' style={{ textDecoration: 'none' }}><li>pretzle</li></Link>
+            <Link to='/pretzel' style={{ textDecoration: 'none' }}><li>pretzle</li></Link>
             <Link to='/sphere' style={{ textDecoration: 'none' }}><li>układ słoneczny</li></Link>
             <Link to='/author' style={{ textDecoration: 'none' }}><li><div className="makeItButtonLike"><Btn>autor</Btn></div></li></Link>
             </ul>

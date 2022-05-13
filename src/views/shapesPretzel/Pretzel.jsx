@@ -2,7 +2,7 @@ import React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
 import { OrbitControls, softShadows, Stars} from '@react-three/drei';
-import useHoover from '../../Hooks/useHoover';
+//import useDrag from '../../Hooks/useDrag';
 import './Pretzel.scss'
 
 softShadows();

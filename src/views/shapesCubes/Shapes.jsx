@@ -18,8 +18,7 @@ function Box({position, args, color, castShadow, speed}) {
 }
 function Shapes() {
 	return (
-		<div className="body">
-			Shapes123
+		<div className="bodyCubes">
 			<Canvas shadows={true} colorManagement>
         <ambientLight intensity={.7}/>
         <directionalLight

@@ -3,12 +3,15 @@ import * as THREE from "three";
 import './sphere.scss';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import {MeshWobbleMaterial, Cloud, OrbitControls} from '@react-three/drei';
+import {MeshWobbleMaterial, Cloud, Stars, OrbitControls} from '@react-three/drei';
 import planetData from './planetData';
+
 
 function Spheres() { 
 	return (
+    <div className="body">
     <Canvas camera={{ position: [0, 20, 25], fov: 45 }}>
+      <Stars count={3000}/>
     <Sun />
     {planetData.map((planet)=>(
       <Planet planet={planet} key={planet.id}/>
@@ -17,6 +20,7 @@ function Spheres() {
     <Lights />
     <OrbitControls />
   </Canvas>
+  </div>
 );
 }
 

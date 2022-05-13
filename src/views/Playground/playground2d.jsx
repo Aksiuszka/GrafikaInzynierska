@@ -1,8 +1,11 @@
 import React from 'react'
+import './playground2d.css'
 
 function playground2d() {
   return (
-    <div>playground2d</div>
+    <div>
+      <div className="test">rtert</div>
+    </div>
   )
 }
 
